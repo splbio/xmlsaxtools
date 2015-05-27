@@ -40,7 +40,12 @@ class XMLCounter(xml.sax.ContentHandler):
 if __name__ == '__main__':
     import argparse
 
-    parser = argparse.ArgumentParser(description='SAX get count of elements.')
+    example = '''
+Example of use:
+
+xmlsaxcounter.py -input dl6.xml --path /threats/ips/ip --verbose
+    '''
+    parser = argparse.ArgumentParser(description='SAX get count of elements.', epilog=example, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--input', help="input file")
     parser.add_argument('--path', required=True, help="xml path to count, example (/threats/ips/ip)")
     parser.add_argument('--verbose', action='store_true', help="output some progress while processing")
